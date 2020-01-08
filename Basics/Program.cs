@@ -7,7 +7,10 @@ class Program
         //ReadName();
         //buildinTypes();
         //WriteName();
-        CommonOperators();
+        //CommonOperators();
+        //CoalescingOperators();
+        //NotNullable();
+        DatatypeConv();
 
 
 
@@ -70,6 +73,70 @@ class Program
     {
         int x = 0;
         Console.WriteLine("MinValue is {0} and MaxValue is {1}", int.MinValue, int.MaxValue);
+    }
+
+    static void NotNullable()
+    {
+        bool? myname = null;
+        if(myname == true)
+        {
+            Console.WriteLine("This is my name");
+        }
+
+         else if (myname == false)
+        {
+            Console.WriteLine("This is not my name");
+        }
+
+        else
+        {
+            Console.WriteLine("None of the above");
+        }
+    }
+
+    static void CoalescingOperators()
+    {
+        int? TicketsOnSale = 206345673;
+        int AvailableTickets = TicketsOnSale ?? 0;
+        
+
+            Console.WriteLine("Available ticket {0}", AvailableTickets);
+        
+    }
+
+    static void DatatypeConv()
+    {
+        int num = 23;
+        //inplicit
+        float numfloat = num;
+        Console.WriteLine(numfloat);
+
+        //explicit
+        float fnumber = 34.544F;
+        int inumber = (int)fnumber;
+        int intnumber = Convert.ToInt32(fnumber);
+
+        //string
+        string snumber = "10000";
+        int isnum = int.Parse(snumber);
+
+        Console.WriteLine(fnumber);
+        Console.WriteLine(inumber);
+        Console.WriteLine(intnumber);
+        Console.WriteLine(isnum);
+
+        string mynumber = "232YOU";
+         bool isCorrect = int.TryParse(mynumber, out int result);
+        if(isCorrect)
+        {
+            Console.WriteLine(result);
+        }
+        else
+        {
+            Console.WriteLine("You are not serious");
+        }
+
+
     }
 
 
