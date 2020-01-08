@@ -10,7 +10,9 @@ class Program
         //CommonOperators();
         //CoalescingOperators();
         //NotNullable();
-        DatatypeConv();
+        //DatatypeConv();
+        //MyArray();
+        Ifstatement();
 
 
 
@@ -137,6 +139,39 @@ class Program
         }
 
 
+    }
+
+    static void MyArray()
+    {
+        /*khjbjkjg
+         * fighkvkhjnlkh
+            */
+        int[] theArray = new int[4];
+        theArray[0] = 4;
+        theArray[1] = 3;
+        theArray[2] = 7;
+        theArray[3] = 9;
+
+        Console.WriteLine(theArray[0]);
+    }
+
+    static void Ifstatement()
+    {
+        Console.WriteLine("Enter a number");
+        int mynumber = int.Parse(Console.ReadLine());
+
+        if (mynumber == 2)
+        {
+            Console.WriteLine("Your number is 2");
+        }
+        else if (mynumber == 4)
+        {
+            Console.WriteLine("Your number is 4");
+        }
+        else
+        {
+            Console.WriteLine("Your number is {0}", mynumber);
+        }
     }
 
 
