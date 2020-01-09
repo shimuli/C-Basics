@@ -4,6 +4,7 @@ class Program
     
     static void Main()
     {
+        Program p = new Program();
         //ReadName();
         //buildinTypes();
         //WriteName();
@@ -12,7 +13,12 @@ class Program
         //NotNullable();
         //DatatypeConv();
         //MyArray();
-        Ifstatement();
+        //Ifstatement();
+        //switchcase();
+        //whileloop();
+        //p.forloop();
+        int Sum= p.Add(20, 30);
+        Console.WriteLine(Sum);
 
 
 
@@ -73,7 +79,6 @@ class Program
 
     static void buildinTypes()
     {
-        int x = 0;
         Console.WriteLine("MinValue is {0} and MaxValue is {1}", int.MinValue, int.MaxValue);
     }
 
@@ -156,6 +161,7 @@ class Program
     }
 
     static void Ifstatement()
+
     {
         Console.WriteLine("Enter a number");
         int mynumber = int.Parse(Console.ReadLine());
@@ -172,6 +178,130 @@ class Program
         {
             Console.WriteLine("Your number is {0}", mynumber);
         }
+    }
+
+    static void switchcase()
+    {
+        int PizzaCost = 0;
+        Console.WriteLine("Welcome To Yummy Pizza!!!");
+        Console.WriteLine("-------------------------------");
+
+        Start:
+        Console.WriteLine("please Select Pizza size: ");
+        Console.WriteLine("1: Small\n2: medium\n3: Large ");
+
+        int thenumber = int.Parse(Console.ReadLine());
+
+        switch (thenumber)
+        {
+            case 1:
+                PizzaCost += 450;             
+                break;
+
+            case 2:
+                PizzaCost += 850;               
+                break;
+            case 3:
+                PizzaCost += 1050;               
+                break;
+
+            default:
+                Console.WriteLine("{0} is invalid,please select a valid number, try again",thenumber);
+                goto Start;
+                
+        }
+        AnotherBuy:
+        Console.WriteLine("Order another Pizza -Yes or No");
+        String Userdecision = Console.ReadLine();
+        switch (Userdecision.ToUpper())
+        {
+            case "YES":
+                goto Start;
+            case "NO":
+                break;
+            default:
+                Console.WriteLine("Your Choice is Invalid!!!!,please try again");
+                goto AnotherBuy;
+                
+        }
+        Console.WriteLine("Thank you for shopping with us");
+        Console.WriteLine("Cost Ksh {0}", PizzaCost);
+        
+    }
+
+    static void whileloop()
+    {
+        string userChoice = "";
+        do
+        {
+            Console.WriteLine("Enter a number");
+            int usernum = int.Parse(Console.ReadLine());
+
+            int typenum = -10;
+            while (typenum <= usernum)
+            {
+                Console.Write(typenum + " ");
+                typenum += 1;
+
+
+            }
+
+            do
+            {
+                Console.WriteLine("Do you want to continue: Yes or No");
+                userChoice = Console.ReadLine();
+
+
+                if (userChoice.ToUpper() != "YES" && userChoice.ToUpper() != "NO")
+                {
+                    Console.WriteLine("Invalid Choice,try again...");
+                }
+            } while (userChoice.ToUpper() != "YES" && userChoice.ToUpper() != "NO");
+
+        } while (userChoice.ToUpper()== "YES");
+
+
+
+
+
+
+    }
+
+    public void forloop()
+    {
+        int[] myarray = new int[10];
+        myarray[0] = 200;
+        myarray[1] = 100;
+        myarray[2] = 300;
+        myarray[3] = 500;
+        myarray[4] = 600;
+        myarray[5] = 700;
+        myarray[6] = 900;
+        myarray[7] = 50;
+
+        foreach (int k in myarray)
+        {
+            Console.WriteLine(k);
+            if (k == 500)
+                break;
+        }
+        for(int i = 0; i<=30; i++)
+        {
+            if (i % 2 == 1)
+                continue;
+            Console.Write(i + " ");
+
+        }
+
+        //for(int x = 0; x<myarray.Length; x++)
+        //{
+        //    Console.WriteLine(myarray[x]);
+        //}
+
+    }
+    public int Add(int FN, int LN)
+    {
+        return FN + LN;
     }
 
 
