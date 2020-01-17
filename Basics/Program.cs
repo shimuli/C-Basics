@@ -1,4 +1,271 @@
 ﻿using System;
+using MyFunctionsA.PrintMethods;
+
+public class Students
+{
+    public string firstname= "Cedric";
+    public string lastname= "Gyan";
+    public string email= "ced@gmail.com";
+
+
+    //public Students(string Fname, string Lname, string Email)
+    //{
+    //    this.firstname = Fname;
+    //    this.lastname = Lname;
+    //    this.email = Email;
+
+
+    //}
+
+    public virtual void PrintNames()
+    {
+        Console.WriteLine("Full name is {0} and email is {1}", this.firstname + " " + this.lastname, email);
+    }
+}
+public class FirstYear : Students
+{
+    //public string year;
+
+    //public void printYear()
+    //{
+    //    Console.WriteLine("Year of study {0}", year);
+    //}
+
+    public override void PrintNames()
+    {
+        Console.WriteLine("Full name is {0} and email is {1}", this.firstname + " " + this.lastname, email + " -First Year");
+    }
+
+
+}
+
+public class SecondYear : Students
+{
+    public string year;
+    //public void printYear()
+    //{
+    //    Console.WriteLine("Year of study {0}", year);
+    //}
+    public override void PrintNames()
+    {
+        Console.WriteLine("Full name is {0} and email is {1}", this.firstname + " " + this.lastname, email + " -Second Year");
+    }
+
+
+
+}
+
+public class ThirdYear : Students
+{
+    //public string year;
+    public override void PrintNames()
+    {
+        Console.WriteLine("Full name is {0} and email is {1}", this.firstname + " " + this.lastname, email + " -Third Year");
+    }
+
+}
+
+public class FourthYear : Students
+{
+    //public string year;
+    public override void PrintNames()
+    {
+        Console.WriteLine("Full name is {0} and email is {1}", this.firstname + " " + this.lastname, email + " -Fourth Year");
+    }
+
+}
+
+
+class Circle
+{
+    int radius;
+    static float pi = 3.142F;
+
+    public Circle(int Radius)
+    {
+        this.radius = Radius;
+    }
+    public float Area()
+    {
+       return Circle.pi * this.radius * this.radius;
+    }
+}
+
+class Employees
+{
+    private string name;
+    private int id;
+    private int salary = 40000;
+
+    public string Name
+    {
+        set
+        {
+            if (string.IsNullOrEmpty(value))
+            {
+                throw new Exception("Name cannot be Empty");
+            }
+            this.name = value;
+        }
+
+        get
+        {
+            if (string.IsNullOrEmpty(this.name))
+            {
+                Console.WriteLine("Name is Empty");
+            }
+            return this.name;
+        }
+    }
+
+
+    public int Id
+    {
+        set { 
+        if(value <= 0)
+        {
+            throw new Exception("Id cannot be less than 0");
+        }
+        this.id = value;
+        }
+
+        get
+        {
+            return this.id;
+        }
+
+    }
+
+
+    public int Salo
+    {
+        get
+        {
+            return this.salary;
+        }
+        
+    }
+
+    public string City
+    {
+        get;
+        set;
+    }
+}
+
+//structure
+
+    public struct Customer
+{
+    private int id;
+    private string name;
+
+    public int Id { get => id; set => id = value; }
+    public string Name { get => name; set => name = value; }
+
+    public Customer(int Id, string Name)
+    {
+        this.id = Id;
+        this.name = Name;
+    }
+
+    public void PrintDetails()
+    {
+        Console.WriteLine("Id is {0} and Name is {1}", this.id, this.name);
+    }
+}
+
+interface IPerson
+{
+    void Print();
+}
+
+interface Iperson2
+{
+    void print1();
+}
+
+class Person : IPerson, Iperson2
+{
+    public void Print()
+    {
+        Console.WriteLine("Interfaces");
+    }
+
+    public void print1()
+    {
+        Console.WriteLine("Interfaces2");
+    }
+}
+
+interface IPerson3 : Iperson2
+{
+    void Print3();
+}
+
+class Person3 : IPerson3
+{
+    public void print1()
+    {
+        throw new NotImplementedException();
+    }
+
+    public void Print3()
+    {
+        throw new NotImplementedException();
+    }
+}
+
+class MyPerson : IPerson
+{
+    public void Print()
+    {
+        Console.WriteLine("Interface one implementation");
+    }
+}
+
+interface I1
+{
+    void InterfaceMethod();
+}
+
+interface I2
+{
+    void InterfaceMethod();
+}
+
+class Class1: I1, I2
+{
+    void I1.InterfaceMethod()
+    {
+        Console.WriteLine("Inteface 1");
+    }
+
+    void I2.InterfaceMethod()
+    {
+        Console.WriteLine("Inteface 2");
+    }
+
+
+}
+
+abstract class ABClass
+{
+    public abstract void MyMethod();
+}
+
+class TestClass : ABClass
+{
+    public override void MyMethod()
+    {
+        Console.WriteLine("My abstract");
+    }
+}
+
+
+
+
+
 class Program
 {
     
@@ -17,12 +284,104 @@ class Program
         //switchcase();
         //whileloop();
         //p.forloop();
-        int Sum= p.Add(20, 30);
-        Console.WriteLine(Sum);
+        //int Sum= p.Add(20, 30);
+        //Console.WriteLine(Sum);
 
+        //int i = 2;
+        //Mynumber(ref i);
+        //Console.WriteLine(i);
+
+        //int v = 2;
+        //MynumberValue(v);
+        //Console.WriteLine(v);
+
+        //int Total = 0;
+        //int prod = 0;
+        ////Cal(10, 20, out Total, out prod);
+        ////Console.WriteLine("Sum={0} and Prod = {1}", Total,prod);
+
+        ////printer.Print();
+
+        ////Students student = new Students("Cedric", "Shimuli");
+        ////Students students = new Students("Cedric", "Shimuli");
+        ////student.PrintNames();
+
+        //Circle circle = new Circle(7);
+        //float Area = circle.Area();
+        //Console.WriteLine(Area);
+
+        //Circle circle1 = new Circle(89);
+        //float Area1 = circle1.Area();
+        //Console.WriteLine(Area1);
+
+        //FirstYear firstyear = new FirstYear();
+        //firstyear.email = "cedric@gmail.com";
+        //firstyear.firstname = "Cedric";
+        //firstyear.lastname = "Shimuli";
+        //firstyear.year = "first";
+        //firstyear.PrintNames();
+        //firstyear.printYear();
+
+        //SecondYear secondyear = new SecondYear();
+        //secondyear.email = "gyan@gmail.com";
+        //secondyear.firstname = "Gyan";
+        //secondyear.lastname = "Shimuli";
+        //secondyear.year = "second";
+        //secondyear.PrintNames();
+        //secondyear.printYear();
+
+        //Students[] studnets = new Students[5];
+
+        //studnets[0] = new Students();
+        //studnets[1] = new FirstYear();
+        //studnets[2] = new SecondYear();
+        //studnets[3] = new ThirdYear();
+        //studnets[4] = new FourthYear();
+
+
+        //foreach(Students s in studnets)
+        //{
+        //    s.PrintNames();
+        //}
+
+        //Employees emp = new Employees();
+        //emp.Id = 20;
+        //emp.Name= "Cedric";
+        //emp.City = "Kisii";
+
+
+
+        //Console.WriteLine("Id is {0}", emp.Id);
+        //Console.WriteLine("Name is {0}", emp.Name);
+        //Console.WriteLine("Salary is {0}", emp.Salo);
+        //Console.WriteLine("From  {0}", emp.City);
+
+        //Customer customer = new Customer(10, "cedric");
+        //customer.PrintDetails();
+
+        //Customer customer1 = new Customer
+        //{
+        //    Id = 12,
+        //    Name = "Steve"
+
+        //};
+        //customer1.PrintDetails();
+
+        MyPerson person = new MyPerson ();
+        person.Print();
+
+        I1 i1 = new Class1();
+        I2 i2 = new Class1();
+
+        i1.InterfaceMethod();
+        i2.InterfaceMethod();
+
+        TestClass testclass = new TestClass();
+        testclass.MyMethod();
 
 
     }
+
     static void ReadName ()
     {
         Console.WriteLine("\"welcome to C# my man\"");
@@ -304,5 +663,60 @@ class Program
         return FN + LN;
     }
 
+    static void Mynumber(ref int j)
+    {
+        j = 254;
+    }
+
+    static void MynumberValue(int j)
+    {
+        j = 254;
+    }
+
+    static void Cal(int x, int y, out int Sum,out int Pro)
+    {
+        Sum = x + y;
+        Pro = x * y;
+    }
+
+    //Method Overloading
+    static void sum(int FN, int SN)
+    {
+        Console.WriteLine("Sum is {0}", FN + SN);
+    }
+
+    static void sum(int FN, int SN, int TN)  //Method Overloading with number of parameters
+    {
+        Console.WriteLine("Sum is {0}", FN + SN+ TN);
+    }
+
+    static void sum(float FN, float SN)  //Method Overloading with different type of parameters
+    {
+        
+        Console.WriteLine("Sum is {0}", FN + SN);
+    }
+
+    static void sum(int FN, int SN, out int TN)  //Method Overloading with type of parameter
+    {
+        Console.WriteLine("Sum is {0}", FN + SN );
+        TN = FN + SN;
+    }
+
+
 
 }
+
+namespace MyFunctionsA
+{
+    namespace PrintMethods
+    {
+        class printer
+        {
+            public static void Print()
+            {
+                Console.WriteLine("This all about name space");
+            }
+        }
+    }
+}
+
